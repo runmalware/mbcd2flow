@@ -1,0 +1,117 @@
+#https://github.com/runmalware/mbcd2flow
+direction: right
+classes: {
+  label_white: { style: { font-color: "#FFFFFF" } }
+}
+
+# PHASE 1: PRE-EXECUTION STEALTH
+Analysis_Avoidance: {
+  style: { fill: "#4A4E54"; stroke: "#2C3E50" }
+  class: label_white
+  label: "Phase 1: Analysis Avoidance"
+
+  Anti_Static: {
+    label: "Anti-Static Analysis"
+    B0010: "B0010-Call Graph Evasion"
+    B0032: "B0032-Obfuscation"
+    B0045: "B0045-Data Flow Evasion"
+    B0012: "B0012-Disassembler Evasion"
+    F0001: "F0001-Software Packing"
+  }
+
+  Anti_Behavioral: {
+    label: "Anti-Behavioral Analysis"
+    B0001: "B0001-Debugger Detect"
+    B0009: "B0009-VM Detect"
+    B0007: "B0007-Sandbox Detect"
+    B0003: "B0003-Dynamic Evasion"
+    B0036: "B0036-Capture Evasion"
+  }
+}
+
+# PHASE 2: INITIAL ACCESS & PERSISTENCE
+Execution_Persistence: {
+  style: { fill: "#EBC034"; stroke: "#B7950B" }
+  label: "Phase 2: Execution & Persistence"
+
+  Execution: {
+    E1204: "E1204-User Execution"
+    E1059: "E1059-CLI Interpreter"
+    B0011: "B0011-Remote Commands"
+    B0025: "B0025-Conditional Exec"
+    E1569: "E1569-System Services"
+  }
+
+  Persistence_PrivEsc: {
+    label: "Persistence & PrivEsc"
+    F0012: "F0012-Registry Run Keys"
+    F0015: "F0015-Hijack Exec Flow"
+    F0011: "F0011-Modify Service"
+    F0010: "F0010-Kernel Modules"
+    B0022: "B0022-Remote Access"
+  }
+}
+
+# PHASE 3: INTERNAL OPERATIONS
+Internal_Ops: {
+  style: { fill: "#8E44AD"; stroke: "#5B2C6F" }
+  class: label_white
+  label: "Phase 3: Discovery & Defense Evasion"
+
+  Discovery: {
+    E1082: "E1082-System Info"
+    E1083: "E1083-File/Dir Discovery"
+    B0013: "B0013-Analysis Tool Disc"
+    B0038: "B0038-Self Discovery"
+  }
+
+  Evasion: {
+    E1055: "E1055-Process Injection"
+    F0007: "F0007-Self Deletion"
+    F0004: "F0004-Disable Security Tools"
+    E1014: "E1014-Rootkit"
+    B0029: "B0029-Polymorphic Code"
+  }
+}
+
+# PHASE 4: C2 & DATA THEFT
+C2_Exfiltration: {
+  style: { fill: "#C0392B"; stroke: "#7B241C" }
+  class: label_white
+  label: "Phase 4: C2, Lateral & Collection"
+
+  Communication: {
+    B0030: "B0030-C2 Comm"
+    B0031: "B0031-DGA"
+    E1105: "E1105-Ingress Tool Transfer"
+  }
+
+  Collection: {
+    F0002: "F0002-Keylogging"
+    E1113: "E1113-Screen Capture"
+    E1056: "E1056-Input Capture"
+    B0028: "B0028-Crypto Stealing"
+  }
+
+  Exfiltration: {
+    E1020: "E1020-Automated Exfil"
+    OB0010: "OB0010-Exfiltration Obj"
+  }
+}
+
+# PHASE 5: MISSION COMPLETION
+Impact: {
+  style: { fill: "#FFFFFF"; stroke: "#BDC3C7" }
+  label: "Phase 5: Impact"
+  E1486: "E1486-Data Encrypted"
+  F0014: "F0014-Disk Wipe"
+  B0033: "B0033-DoS"
+  B0017: "B0017-Destroy Hardware"
+  B0018: "B0018-Resource Hijacking"
+}
+
+# Logical Connections
+Analysis_Avoidance -> Execution_Persistence: "Checks Passed"
+Execution_Persistence -> Internal_Ops: "Foothold Established"
+Internal_Ops -> C2_Exfiltration: "Data/Target Found"
+C2_Exfiltration -> Impact: "Objective Reached"
