@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Malware Behavior Catalog](https://img.shields.io/badge/Catalog-MBC-blue)](https://github.com/MBCProject/mbc-markdown)
 [![Tool-D2](https://img.shields.io/badge/Tool-D2_Diagram-green)](https://d2lang.com/)
+[![MBC D2 Flow Example](./assets/mbd2flow_example.png)](./assets/mbd2flow_example.png)
+
 
 โปรเจกต์นี้ถูกสร้างขึ้นเพื่อใช้เป็นเครื่องมือในการ **สื่อสารและอธิบายทิศทางการทำงาน (Attack Path)** ของมัลแวร์ในรูปแบบ Visual Diagram โดยใช้ภาษา D2 
 
